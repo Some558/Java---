@@ -1,3 +1,4 @@
+// 引数に配列を受け取るメソッド
 public class Main {
     public static void printArray(int[] array) {
       for(int element : array){
