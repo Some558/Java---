@@ -1,5 +1,6 @@
 package comment;
-public class Kouhan{
+
+public class Kouhan {
   public static void callDeae() {
     System.out.println("えぇい、こしゃくな。くせ者だ！であえい！");
   }
