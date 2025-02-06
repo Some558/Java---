@@ -1,4 +1,4 @@
-package comment;
+package 基礎学習.comment;
 
 public class Kouhan {
   public static void callDeae() {

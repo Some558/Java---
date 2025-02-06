@@ -1,4 +1,4 @@
-package comment;
+package 基礎学習.comment;
 public class Zenhan {
   public static void doWarusa() {
     System.out.println("きなこでござる。食えませんがの。");
