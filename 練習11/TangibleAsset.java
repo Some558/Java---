@@ -1,4 +1,4 @@
-public abstract class TangibleAsset {
+public abstract class TangibleAsset{
     String color;
     public TangibleAsset(String name, int price, String color){
     super(name, price);
