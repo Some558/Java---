@@ -1,4 +1,4 @@
-public class Computer implements TangibleAsset{
+public class Computer extends TangibleAsset{
     String makerName;
     // コンストラクタ
     public Computer

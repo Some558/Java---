@@ -1,4 +1,4 @@
-public class Book {
+public class Book extends TangibleAsset{
     String isbn;
     // コンストラクタ
     public Book
@@ -9,4 +9,3 @@ public class Book {
     // メソッド
     public String getIsbn(){ return this.isbn;}
 }
-// ア Asset イ IntangibleAsset ウ Patent
