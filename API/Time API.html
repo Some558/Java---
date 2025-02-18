@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Time API&#x306b;&#x3088;&#x304f;&#x4f7f;&#x308f;&#x308c;&#x308b;5&#x3064;&#x306e;&#x4ee3;&#x8868;&#x7684;&#x306a;&#x30af;&#x30e9;&#x30b9;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <p>※本記事はスッキリわかるJava入門　第4班を参照しています。</p>
+<h2 id="time-apiによく使われる5つの代表的なクラス">Time APIによく使われる5つの代表的なクラス</h2>
+<ol>
+<li>Instant：世界におけるある瞬間の時刻を7秒単位で厳密に指し示す</li>
+<li>ZonedDateTime：世界におけるある瞬間の時刻を7秒単位で厳密に指し示す</li>
+<li>LocalDateTime：日常的に使われる曖昧な日時を保持</li>
+<li>Duration：二つの異なる時刻や日付の期間を保持</li>
+<li>Period：二つの異なる時刻や日付の期間を保持</li>
+</ol>
+<h3 id="instant">Instant</h3>
+<p>エポックからの経過時間をナノ秒数で格納する</p>
+<pre><code class="language-java:Instant.md">import java.time.*;
+
+public class Main{
+    public class Main{
+        public static void main(String[] args){
+            // 現在日時を取得
+            Instant i1 = Instant.now();
+        }
+    }
+}
+</code></pre>
+<h3 id="zoneddatetime">ZonedDateTime</h3>
+<p>エポックからの経過時間ではなく、東京におけるなどを指定できる。
+つまりタイムゾーン情報を含める。</p>
+<pre><code class="language-java:ZonedDateTime.md">public class Main{
+    public class Main{
+        public static void main(String[] args){
+            // 現在時刻を取得
+            ZonedDateTime z1 = ZonedDateTime.now();
+            // 東京時間2023年1月2日3時4分5秒6ナノ秒を指定して取得
+            ZonedDateTime z2 = ZonedDateTime.of(2023, 1, 3, 4, 5, 6, ZoneId.of(&quot;Asia/Tokyo&quot;));
+        }
+    }
+}
+</code></pre>
+<h3 id="曖昧な日時">曖昧な日時</h3>
+<p>日常生活の会話の中では、月と日だけで話すような会話が一般的。
+全てがナノ秒表されると使いにくいため、曖昧な日時で表すことが重要です。
+そういった時、MonthDayは月と日だけの表示だから便利。</p>
+<h3 id="localdatetime">LocalDateTime</h3>
+<p>タイムゾーン情報だけは格納しない。</p>
+<pre><code class="language-java:LocalDateTime.md">public class Main{
+    public class Main{
+        public static void main(String[] args){
+            // 現在時刻を取得
+            LocalDateTime l1 = LocalDateTime.now();
+            // 2024年1月1日9時5分を指定して取得
+            // 秒とナノは0にしておくことで表さない
+            LocalDateTime z2 = LocalDateTime.of(2024, 1, 1, 9, 5, 0, 0);
+        }
+    }
+}
+</code></pre>
+<h3 id="その他の日時変更メソッドを活用したコード例">その他の日時変更メソッドを活用したコード例</h3>
+<p>parse
+format</p>
+<pre><code class="language-java:Main.java.md">import java.time.*;
+import java.time.format.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // fmtに文字列書式を指定して代入する
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern(&quot;yyyy/MM/dd&quot;);
+        // ldateにfmtで指定した書式をもとに引数の文字を代入する。
+        // ldate = 2023-09-22
+        LocalDate ldate = LocalDate.parse(&quot;2023/09/22&quot;, fmt);
+
+        // 1000日後を計算する
+        // ldatep = 2026-06-18
+        LocalDate ldatep = ldate.plusDays(1000);
+        // 変数strにfmt書式のldatepを代入する
+        // str = &quot;2026/06/18&quot;
+        String str = ldatep.format(fmt);
+        // strをもとに出力する
+        System.out.println(&quot;1000日後は&quot; + str);
+
+        // 現在日時との比較
+        // now = 現在の日付 (例: 2025-02-18)
+        LocalDate now = LocalDate.now();
+        // もし現在の日付がldatepより後であれば、以下を出力する
+        if (now.isAfter(ldatep)) {
+            System.out.println(&quot;本日は、その日より未来です。&quot;);
+        }
+    }
+}
+</code></pre>
+<p>Periodクラス</p>
+<pre><code class="language-java:Main2.java.md">
+import java.time.*;
+
+public class Main2 {
+    public static void main(String[] args) {
+        // d1に2023年1月1日を代入する
+        // d1 = 2023-01-01
+        LocalDate d1 = LocalDate.of(2023, 1, 1);
+        
+        // d2に2023年1月4日を代入する
+        // d2 = 2023-01-04
+        LocalDate d2 = LocalDate.of(2023, 1, 4);
+
+        // 3日間を表すPeriodを2通りの方法で生成
+        // p1 = P3D (3日間)
+        Period p1 = Period.ofDays(3);
+        
+        // p2にd1からd2までの期間を代入する
+        // p2 = P3D (3日間)
+        Period p2 = Period.between(d1, d2);
+
+        // d2のさらに3日後を計算する
+        // d3 = 2023-01-07
+        LocalDate d3 = d2.plus(p2);
+    }
+}
+</code></pre>
+
+            
+            
+        </body>
+        </html>
